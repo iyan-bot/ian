@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ian's Website</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            color: #333;
+            line-height: 1.6;
+            background-image: url('demon.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+        }
+
+        body.about-active {
+            background-image: url('name.jpg');
+        }
+
+        body.contact-active {
+            background-image: url('adrian.jpg');
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.7); 
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        nav ul li a:hover {
+            color: #ddd;
+        }
+
+        main {
+            padding: 20px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            margin: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        section {
+            display: none;
+        }
+
+        #home {
+            display: block;
+        }
+
+        footer {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            width: 100%;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => section.style.display = 'none');
+            document.getElementById(sectionId).style.display = 'block';
+
+            document.body.classList.remove('about-active', 'contact-active');
+
+            if (sectionId === 'about') {
+                document.body.classList.add('about-active');
+            } else if (sectionId === 'contact') {
+                document.body.classList.add('contact-active');
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Ian's Website</h1>
+
+        <nav>
+            <ul>
+                <li><a onclick="showSection('home')">Home</a></li>
+                <li><a onclick="showSection('about')">About</a></li>
+                <li><a onclick="showSection('contact')">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home">
+            <h2>Home Page</h2>
+            <p>My Name is Adrian A. Dador from COM246. I'am a Bachelor of Science in Computer Science with speacialization in Machine Learning student.</p>
+        </section>
+
+        <section id="about">
+            <h2>About</h2>
+            <p>I created this Website for a School Midterm Exam.</p>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>You can contact Ian at: <a href="mailto:dadoradrian16@gmail.com">dadoradrian16@gmail.com</a></p>
+            <p> <a href="callto:09957197352">     09957197352</a></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; Ian's Website</p>
+    </footer>
+</body>
+</html>
